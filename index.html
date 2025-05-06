@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kyle Sohn Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nanum Gothic', sans-serif;
+      background: linear-gradient(to bottom right, #ffffff, #f1f5f9);
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y proximity;
+    }
+
+    .hero, .bio {
+      min-height: 100vh;
+      scroll-snap-align: start;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      font-weight: bold;
+      background: white;
+      border-bottom: 3px solid black;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      position: relative;
+      margin-left: 2rem;
+      text-decoration: none;
+      color: black;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+
+.project-card {
+  width: 350px; 
+}
+
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: #c8102e;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+.logo {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #c8102e;
+  text-decoration: none;
+  position: relative;
+}
+
+
+.logo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #c8102e;
+  transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+  width: 100%;
+}
+
+
+    .hero {
+      background: linear-gradient(to right, rgba(255,245,245,0.7), rgba(255,228,230,0.7)), url("homepage/seoul.jpeg") center/cover no-repeat;
+      background-blend-mode: lighten;
+      padding: 6rem 2rem 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      border-bottom: 3px solid #000;
+    }
+
+    .intro-text {
+      max-width: 720px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .intro-text h1 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      color: #c8102e;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .tagline {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      color: #002f6c;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      animation-delay: 0.5s;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .bio {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10rem 2rem;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(240,244,248,0.8)), url("homepage/nyc.jpg") center/cover no-repeat;
+      background-blend-mode: lighten;
+      border-top: 3px solid #000;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 4rem;
+      max-width: 1200px;
+      margin-left: -2rem;
+      flex-wrap: wrap;
+    }
+
+    .profile-photo {
+      background: url("profilephoto.jpg") center/cover no-repeat;
+      border-radius: 50%;
+      width: 280px;
+      height: 280px;
+      box-shadow: 0 0 0 5px black;
+      animation: float 3s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .about-text {
+      max-width: 700px;
+      flex: 1;
+    }
+
+    .subtitle {
+      font-size: 1.9rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .bio-blurb {
+      font-size: 1.15rem;
+      line-height: 1.85;
+      text-align: left;
+    }
+
+    .links {
+      background: #0f172a;
+      color: white;
+      display: flex;
+      gap: 3rem;
+      padding: 3rem;
+      font-weight: bold;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 1rem;
+      border-top: 4px solid #c8102e;
+    }
+
+    .links a {
+      position: relative;
+      color: #f1f5f9;
+      text-decoration: none;
+    }
+
+    .links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: #c8102e;
+      transition: width 0.3s ease;
+    }
+
+    .links a:hover::after {
+      width: 100%;
+    }
+
+.resume-section {
+  padding: 5rem 2rem;
+  background: #f7f9fc;
+  border-top: 3px solid #c8102e;
+  text-align: center;
+}
+
+.resume-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.resume-preview {
+  width: 90%;
+  max-width: 800px;
+  height: 900px;
+  border: 2px solid #002f6c;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.resume-download {
+  background: #002f6c;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.resume-download:hover {
+  background: #004080;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+    .resume-section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #c8102e;
+    }
+
+    .resume-embed {
+      width: 90%;
+      height: 800px;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .work-section {
+      padding: 5rem 2rem;
+      background: #fff;
+      border-top: 3px solid black;
+      text-align: center;
+    }
+
+    .work-section h2 {
+      font-size: 2.5rem;
+      color: #c8102e;
+      margin-bottom: 3rem;
+    }
+
+.project-card {
+  max-width: 350px;
+  margin: 2rem auto;
+  background: #ffffffcc; 
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid #e0e0e0;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.project-card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-card .project-content {
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+}
+
+.project-card h3 {
+  font-size: 1.6rem;
+  color: #002f6c;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.project-card p {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .nav-links a {
+        margin: 0;
+      }
+
+      .intro-text h1 {
+        font-size: 2.75rem;
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+      }
+
+      .about-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+      }
+
+      .profile-photo {
+        margin-bottom: 2rem;
+      }
+
+      .about-text, .subtitle, .bio-blurb {
+        text-align: center;
+      }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    html {
+  scroll-padding-top: 100px;
+}
+
+.work-section, .resume-section {
+  padding-top: 6rem;
+}
+
+.contact-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: blur(10px) brightness(0.4) saturate(1.10);
+  transform: scale(1.05);
+}
+
+.contact-overlay {
+  background: rgba(0, 0, 0, 0.55); 
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.contact-overlay h2 {
+  color: #c8102e;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.contact-overlay p {
+  font-size: 1.25rem;
+  color: #f1f5f9;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.contact-icons a img {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
+  transition: transform 0.3s ease;
+}
+
+.contact-icons a img:hover {
+  transform: scale(1.15);
+}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">KS</a>
+    <div class="nav-links">
+      <a href="index.html#about">ABOUT</a>
+      <a href="index.html#work">WORK</a>
+      <a href="index.html#contact">CONTACT</a>
+      <a href="Sohn_Kyle_Resume.pdf" download>RESUME</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="intro-text">
+      <h1>I’m Kyle Sohn.</h1>
+      <p class="tagline">UI/UX designer fueled by emotion, crafting tech-led, community-focused solutions.</p>
+    </div>
+  </section>
+
+  <section class="bio" id="about">
+    <div class="about-container">
+      <div class="profile-photo"></div>
+      <div class="about-text">
+<p class="subtitle" style="color: #c8102e;">
+  I am a Seoul-raised, NYC-styled creative who designs with swagger, empathy, and precision.
+</p>
+        <p class="bio-blurb">
+          <p tabindex="0" style="outline: none;"></p>
+          I’m Kyle Sohn—a UI/UX designer with a fashion-trained eye, shaped by modeling and a deep love for aesthetic expression. I design like I get dressed: with intention, flow, and individuality. Raised in Seoul and rooted in rhythm, I bring sharp instincts from a life of hooping and top-tier gaming—top 10 NA Vayne, undefeated in Smash. My work lives at the intersection of style and function—built to connect, designed to stand out.
+        </p>
+<p class="bio-blurb" style="margin: 1rem 0;">Former Product Manager <strong style="color:#002f6c;">@Pointz</strong></p>
+<p class="bio-blurb" style="margin: 1rem 0;">Current Model <strong style="color:#002f6c;">@UMODELSNYC</strong></p>
+<p class="bio-blurb" style="margin: 1rem 0;">Incoming Data Science Master's Student <strong style="color:#002f6c;">@UPenn</strong></p>
+      </div>
+    </div>
+  </section>
+
+<section class="work-section" id="work">
+  <h2>WORK</h2>
+
+  <div class="project-container">
+    <div class="project-card">
+      <a href="responsiveredesign.html" target="_blank">
+        <img src="responsiveredesign/Asmara Restaurant.jpg" alt="Nahum's Mom's Restaurant Website Redesign">
+        <div class="project-content">
+          <h3>Asmara Restaurant Redesign</h3>
+          <p>A warm, responsive redesign of a local family-owned restaurant's website with accessibility and storytelling at the core.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="project-card">
+      <a href="iterativeredesignfinalportfol.html" target="_blank">
+        <img src="apriora-redesign-main/apriorabackground.jpg" alt="Apriora AI Redesign Case Study">
+        <div class="project-content">
+          <h3>Apriora AI Redesign</h3>
+          <p>A modern, recruiter-focused redesign of an AI interview platform, blending clarity, trust, and emotional warmth through thoughtful iteration.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="project-card">
+      <a href="usermindscapes.html" target="_blank">
+        <img src="personasandstoryboarding/cutecartoon.jpg" alt="User Mindscapes">
+        <div class="project-content">
+          <h3>User Mindscapes</h3>
+          <p>Instead of crafting wireframes, we explore the thoughts, emotions, and behaviors that shape self-checkout experiences. These “mindscapes” reveal not just what users do, but why.</p>
+        </div>
+      </a>
+    </div>
+
+<div class="project-card" style="overflow: hidden; border-radius: 8px;">
+  <a href="pointz.html" target="_blank" style="text-decoration: none; color: inherit;">
+    <img
+      src="pointz/pointz3.png"
+      alt="Pointz"
+      style="
+        display: block;
+        width: 80%;
+        height: auto;
+        object-fit: contain;
+        margin: 60px auto 0;  
+      "
+    >
+    <div
+      class="project-content"
+      style="
+        padding: 1.5rem 1rem 1rem;
+      "
+    >
+      <h3 style="margin-top: 5rem;">Redesigning Pointz’s Homepage</h3>
+      <p>A Figma homescreen mockup earned me a PM role —and refocused Pointz’s homepage on what matters: safe, fast, and favorite routes.</p>
+    </div>
+  </a>
+</div>
+
+</section>
+
+
+  
+
+<section class="contact-section" id="contact">
+  <video autoplay muted loop playsinline class="contact-bg">
+    <source src="homepage/hoopingvideo.MOV" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="contact-overlay">
+    <h2>Enjoy my work? Hit me up!</h2>
+
+    <p class="contact-tagline">From courts to concepts—let’s create something unforgettable.
+
+      <p class = "contact-tagline">Instagram: @ksohn1</p>
+      <p class = "contact-tagline">Email: kylethesohn@gmail.com</p>
+<p class = "contact-tagline">Phone number: 401-465-4722</p>
+
+      
+
+      
+    </p>
+    <div class="contact-icons">
+      <a href="https://www.instagram.com/ksohn1/tagged/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" />
+      </a>
+      <a href="https://github.com/curruy123" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" />
+      </a>
+      <a href="https://www.linkedin.com/in/kyle-sohn/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+      </a>
+      <!-- New email button -->
+      <a href="mailto:kylethesohn@gmail.com" title="Email me">
+        <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Email" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  });
+</script>
+
+
+</body>
+</html>

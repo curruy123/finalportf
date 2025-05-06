@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apriora Iterative Redesign – Case Study</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+    html, body {
+      scroll-behavior: smooth;
+      height: 100%;
+      overflow-y: scroll;
+    }
+    body {
+      font-family: 'Nanum Gothic', sans-serif;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; border-radius: 8px; }
+
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem;
+      background: white;
+      border-bottom: 3px solid black;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: #c8102e;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: #c8102e;
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero-case {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      margin-left: -50vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem 5rem;
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+        url('apriora-redesign-main/apriorabackground.jpg') center/cover no-repeat;
+      background-blend-mode: lighten;
+      border-bottom: 3px solid #000;
+    }
+    .hero-case h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: #c8102e;
+      margin-bottom: 1.25rem;
+    }
+    .hero-case .tagline {
+      font-size: 1.8rem;
+      color: #002f6c;
+      max-width: 850px;
+      margin-bottom: 4rem;
+      line-height: 1.6;
+    }
+
+    .jump-links {
+      text-align: center; padding: 1rem 0; background: transparent;
+    }
+    .jump-links h2 {
+      font-size: 2.25rem; color: #c8102e; font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .jump-links .links {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 1.5rem 3rem;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .jump-links .links a {
+      font-size: 1rem; font-weight: 600; text-transform: uppercase;
+      color: #002f6c; position: relative; padding: 0.5rem 1rem;
+    }
+    .jump-links .links a::after {
+      content: ""; position: absolute; left: 0; bottom: -4px;
+      width: 0; height: 2px; background: #c8102e; transition: width .3s;
+    }
+    .jump-links .links a:hover::after { width: 100%; }
+
+    .main-content {
+      max-width: 900px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+    }
+    .main-content section {
+      background: #fff;
+      margin-bottom: 5rem;
+      padding: 2rem;
+      border-left: 6px solid #002f6c;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      scroll-margin-top: 150px;
+    }
+.main-content section h2 {
+  font-size: 2.25rem;
+  color: #c8102e;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  line-height: 1.3;
+}
+    .main-content section p,
+    .main-content section ul {
+      font-size: 1.3rem;
+      color: #002f6c;
+      text-align: left;
+      margin: 1rem 0;
+    }
+    .main-content img {
+      margin: 1rem auto;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">KS</a>
+    <div class="nav-links">
+      <a href="index.html#about">ABOUT</a>
+      <a href="index.html#work">WORK</a>
+      <a href="index.html#contact">CONTACT</a>
+      <a href="Sohn_Kyle_Resume.pdf" download>RESUME</a>
+    </div>
+  </nav>
+
+  <section class="hero-case">
+    <h1>Apriora Iterative Design</h1>
+    <p class="tagline">
+      A <strong>user-centered redesign</strong> of an AI-based interview platform that prioritizes <strong>clarity</strong>, <strong>human connection</strong>, and <strong>recruiter efficiency</strong>.
+    </p>
+
+<div class="jump-links">
+  <h2>JUMP TO</h2>
+  <div class="links">
+    <a href="#role">Role & Team</a>
+    <a href="#context">Context & Problem</a>
+    <a href="#research">Research</a>
+    <a href="#process">Process</a>
+    <a href="#solution">Solution</a>
+    <a href="#learnings">Learnings</a>
+  </div>
+</div>
+    </div>
+  </section>
+
+<div class="main-content">
+  <section id="role">
+    <h2>🤝 Role & Team</h2>
+    <p>Most of this project was designing components in Figma as a team, but <strong style = "font-weight: 2000;">my core role was refining and polishing the final interface</strong>. I focused on visual clarity: <strong>selecting colors for hierarchy</strong>, adjusting spacing and rounded edges for flow, and making sure the product <strong>felt clean, consistent, and branded</strong>. I was the “final filter,” ensuring every detail aligned with the tone of a trustworthy AI platform.</p>
+  </section>
+
+  <section id="context">
+    <h2>🌍 Context & Problem</h2>
+    <img src = "apriora-redesign-main/apriorafounders.jpg" style = "max-width:550px; margin-bottom: 50px"; alt="Apriora Founders">
+    <p>Apriora is an AI startup streamlining behavioral and technical interviews for recruiters. With direct access to the founders, we grounded our work in their core challenge: replicating authentic, human interviews using AI. Their approach was nuanced, and we designed to highlight this—ensuring the platform felt intuitive while communicating its distinct structure.</p>
+  </section>
+
+  <section id="research">
+    <h2>🔍 Research</h2>
+    <img src = "apriora-redesign-main/apriorastartup.png" style = "max-width:550px; margin-bottom: 50px" alt="Apriora Startup";>
+    <p>Speaking with Apriora’s founders shaped our entire design. Their product blends speed with emotional nuance—something most AI tools don’t. We listened closely and aligned our design to reinforce recruiter insight and candidate comfort. This understanding influenced everything from layout and copy to the overall user journey.</p>
+  </section>
+
+<section id="process">
+  <h2 style="text-align: center;">🔀 Process</h2>
+  <p style="text-align: center; font-size: 1.2rem;">Our process followed an iterative design cycle:</p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+    
+    <div style="text-align: center;">
+      <p style="font-size: 1.1rem; font-weight: bold;">1. Sketching</p>
+      <p style="font-size: 0.95rem;">We mapped early layout and flow ideas with individual sketches.</p>
+      <img src="apriora-redesign-main/sketch.jpg" alt="Sketch" style="max-width: 250px; width: 100%; border-radius: 8px;">
+    </div>
+
+    <div style="text-align: center;">
+      <p style="font-size: 1.1rem; font-weight: bold;">2. Lo-Fi Prototype</p>
+      <p style="font-size: 0.95rem;">We created rough wireframes to test structure and functionality.</p>
+      <img src="apriora-redesign-main/lofiprototype.png" alt="Lo-Fi Prototype" style="max-width: 250px; width: 100%; border-radius: 8px;">
+    </div>
+
+    <div style="text-align: center;">
+      <p style="font-size: 1.1rem; font-weight: bold;">3. Hi-Fi Prototype</p>
+      <p style="font-size: 0.95rem;">We added refined visuals, branding, and interactivity.</p>
+      <img src="apriora-redesign-main/hifi.png" alt="Hi-Fi Prototype" style="max-width: 350px; width: 100%; border-radius: 8px; margin-top: 50px;">
+    </div>
+
+    <div style="text-align: center;">
+      <p style="font-size: 1.1rem; font-weight: bold;">4. User Testing</p>
+      <p style="font-size: 0.95rem;">We observed real users to pinpoint friction and refine the design.</p>
+      <img src="apriora-redesign-main/usertest.png" alt="User Testing" style="max-width: 250px; width: 100%; border-radius: 8px;">
+    </div>
+
+  </div>
+</section>
+
+
+<section id="solution">
+  <h2 style="text-align: center; font-size: 2.25rem; color: #c8102e;">💡 Solution</h2>
+
+<div style="position: relative; max-width: 500px; margin: auto;">
+  <img id="slideshow" src="apriora-redesign-main/slideshow/Calendar.png" alt="Solution Slideshow"
+       style="width: 100%; height: auto; border-radius: 8px; transition: opacity 0.5s ease-in-out; opacity: 1;">
+
+  <!-- Arrows -->
+  <button onclick="prevImage()" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%);
+          background: rgba(0,0,0,0.3); border: none; color: white; font-size: 2rem; padding: 0 0.5rem; cursor: pointer;">&#10094;</button>
+  <button onclick="nextImage()" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%);
+          background: rgba(0,0,0,0.3); border: none; color: white; font-size: 2rem; padding: 0 0.5rem; cursor: pointer;">&#10095;</button>
+</div>
+
+<script>
+  const images = [
+    "apriora-redesign-main/slideshow/Calendar.png",
+    "apriora-redesign-main/slideshow/Input Questions.png",
+    "apriora-redesign-main/slideshow/Interview.png",
+    "apriora-redesign-main/slideshow/Recruiter Apriora Customization Section.png",
+    "apriora-redesign-main/slideshow/Waiting Room.png"
+  ];
+  let index = 0;
+  let slideshow = document.getElementById("slideshow");
+  let interval;
+
+  function showImage(i) {
+    slideshow.style.opacity = 0;
+    setTimeout(() => {
+      slideshow.src = images[i];
+      slideshow.style.opacity = 1;
+    }, 300);
+  }
+
+  function nextImage() {
+    index = (index + 1) % images.length;
+    showImage(index);
+    resetInterval();
+  }
+
+  function prevImage() {
+    index = (index - 1 + images.length) % images.length;
+    showImage(index);
+    resetInterval();
+  }
+
+  function startSlideshow() {
+    interval = setInterval(() => {
+      nextImage();
+    }, 2500);
+  }
+
+  function resetInterval() {
+    clearInterval(interval);
+    startSlideshow();
+  }
+
+  startSlideshow();
+</script>
+
+
+
+  <p style="font-size: 1.2rem; margin-top: 1.5rem;">
+    We designed a streamlined interface that felt both human and efficient. Highlights included:
+  </p>
+  <ul style="font-size: 1.1rem; margin-top: 1rem; margin-left: 1.25rem;">
+    <li>Smooth scheduling flow with calming color hierarchy</li>
+    <li>Welcoming waiting room with familiar cues</li>
+    <li>Dual-transcript meeting room with self-view</li>
+    <li>Custom branding—logos, color, and AI voice naming</li>
+  </ul>
+
+  <h3 style="font-size: 1.2rem; color: #002f6c; margin-top: 2rem;">📊 User Testing</h3>
+
+  <p style="font-size: 1.0rem; margin-top: 1rem;">
+    We asked users to simulate a recruiter flow—from setup to insights. Some skipped key instructions, struggled with post-interview steps, and relied on visual cues to guide them.
+  </p>
+
+  <p style="font-size: 1.0rem; margin-top: 1rem;">
+    Based on feedback, we clarified labels (“Role” → “Candidate Role”), added tooltips, refined layout, and improved navigation.
+  </p>
+
+</section>
+
+
+
+  <section id="learnings">
+    <h2 style="text-align: center;">📚 Learnings</h2>
+    <p>One key takeaway: designing as a team means letting go. Some of my ideas evolved, some got replaced—and the final result was stronger for it. I also learned how powerful Figma can be not just for prototyping, but for dialogue. It helped us explain intent, challenge each other respectfully, and build a better product together.</p>
+  </section>
+</div>
+</body>
+</html>
