@@ -2,624 +2,315 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kyle Sohn Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Nanum Gothic', sans-serif;
-      background: linear-gradient(to bottom right, #ffffff, #f1f5f9);
-      color: #000;
-      overflow-x: hidden;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-snap-type: y proximity;
-    }
-
-    .hero, .bio {
-      min-height: 100vh;
-      scroll-snap-align: start;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      font-weight: bold;
-      background: white;
-      border-bottom: 3px solid black;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      position: relative;
-      margin-left: 2rem;
-      text-decoration: none;
-      color: black;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-.project-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-
-.project-card {
-  width: 350px; 
-}
-
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0%;
-      height: 2px;
-      background: #c8102e;
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-.logo {
-  font-size: 2rem;
-  letter-spacing: 2px;
-  color: #c8102e;
-  text-decoration: none;
-  position: relative;
-}
-
-
-.logo::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #c8102e;
-  transition: width 0.3s ease;
-}
-
-.logo:hover::after {
-  width: 100%;
-}
-
-
-    .hero {
-      background: linear-gradient(to right, rgba(255,245,245,0.7), rgba(255,228,230,0.7)), url("homepage/seoul.jpeg") center/cover no-repeat;
-      background-blend-mode: lighten;
-      padding: 6rem 2rem 5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      border-bottom: 3px solid #000;
-    }
-
-    .intro-text {
-      max-width: 720px;
-      animation: fadeInUp 1s ease forwards;
-    }
-
-    .intro-text h1 {
-      font-size: 4rem;
-      margin-bottom: 1.5rem;
-      color: #c8102e;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    .tagline {
-      font-size: 1.6rem;
-      line-height: 1.6;
-      color: #002f6c;
-      opacity: 0;
-      animation: fadeIn 1.5s ease forwards;
-      animation-delay: 0.5s;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .bio {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10rem 2rem;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(240,244,248,0.8)), url("homepage/nyc.jpg") center/cover no-repeat;
-      background-blend-mode: lighten;
-      border-top: 3px solid #000;
-    }
-
-    .about-container {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 4rem;
-      max-width: 1200px;
-      margin-left: -2rem;
-      flex-wrap: wrap;
-    }
-
-    .profile-photo {
-      background: url("profilephoto.jpg") center/cover no-repeat;
-      border-radius: 50%;
-      width: 280px;
-      height: 280px;
-      box-shadow: 0 0 0 5px black;
-      animation: float 3s ease-in-out infinite;
-      flex-shrink: 0;
-    }
-
-    .about-text {
-      max-width: 700px;
-      flex: 1;
-    }
-
-    .subtitle {
-      font-size: 1.9rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
-    }
-
-    .bio-blurb {
-      font-size: 1.15rem;
-      line-height: 1.85;
-      text-align: left;
-    }
-
-    .links {
-      background: #0f172a;
-      color: white;
-      display: flex;
-      gap: 3rem;
-      padding: 3rem;
-      font-weight: bold;
-      justify-content: center;
-      flex-wrap: wrap;
-      font-size: 1rem;
-      border-top: 4px solid #c8102e;
-    }
-
-    .links a {
-      position: relative;
-      color: #f1f5f9;
-      text-decoration: none;
-    }
-
-    .links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0%;
-      height: 2px;
-      background: #c8102e;
-      transition: width 0.3s ease;
-    }
-
-    .links a:hover::after {
-      width: 100%;
-    }
-
-.resume-section {
-  padding: 5rem 2rem;
-  background: #f7f9fc;
-  border-top: 3px solid #c8102e;
-  text-align: center;
-}
-
-.resume-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.resume-preview {
-  width: 90%;
-  max-width: 800px;
-  height: 900px;
-  border: 2px solid #002f6c;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.resume-download {
-  background: #002f6c;
-  color: white;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.resume-download:hover {
-  background: #004080;
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
-    .resume-section h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #c8102e;
-    }
-
-    .resume-embed {
-      width: 90%;
-      height: 800px;
-      border: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .work-section {
-      padding: 5rem 2rem;
-      background: #fff;
-      border-top: 3px solid black;
-      text-align: center;
-    }
-
-    .work-section h2 {
-      font-size: 2.5rem;
-      color: #c8102e;
-      margin-bottom: 3rem;
-    }
-
-.project-card {
-  max-width: 350px;
-  margin: 2rem auto;
-  background: #ffffffcc; 
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(10px);
-  border: 1px solid #e0e0e0;
-}
-
-.project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-.project-card a {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-}
-
-.project-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.project-card .project-content {
-  padding: 1.75rem 1.5rem;
-  text-align: center;
-}
-
-.project-card h3 {
-  font-size: 1.6rem;
-  color: #002f6c;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.project-card p {
-  font-size: 1.05rem;
-  color: #333;
-  line-height: 1.6;
-}
-
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
-      .nav-links a {
-        margin: 0;
-      }
-
-      .intro-text h1 {
-        font-size: 2.75rem;
-      }
-
-      .tagline {
-        font-size: 1.2rem;
-      }
-
-      .about-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-      }
-
-      .profile-photo {
-        margin-bottom: 2rem;
-      }
-
-      .about-text, .subtitle, .bio-blurb {
-        text-align: center;
-      }
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    html {
-  scroll-padding-top: 100px;
-}
-
-.work-section, .resume-section {
-  padding-top: 6rem;
-}
-
-.contact-section {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contact-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  filter: blur(10px) brightness(0.4) saturate(1.10);
-  transform: scale(1.05);
-}
-
-.contact-overlay {
-  background: rgba(0, 0, 0, 0.55); 
-  padding: 4rem 2rem;
-  text-align: center;
-  color: white;
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
-  max-width: 900px;
-  margin: auto;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-}
-
-.contact-overlay h2 {
-  color: #c8102e;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-}
-
-.contact-overlay p {
-  font-size: 1.25rem;
-  color: #f1f5f9;
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 1rem;
-}
-
-.contact-icons a img {
-  width: 40px;
-  height: 40px;
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
-  transition: transform 0.3s ease;
-}
-
-.contact-icons a img:hover {
-  transform: scale(1.15);
-}
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyle Sohn</title>
+  <meta name="description" content="Kyle Sohn: design, data and code. From Seoul and New York, studying Data Science &amp; AI at Penn." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nanum+Gothic:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <nav class="navbar">
-    <a href="index.html" class="logo">KS</a>
-    <div class="nav-links">
-      <a href="index.html#about">ABOUT</a>
-      <a href="index.html#work">WORK</a>
-      <a href="index.html#contact">CONTACT</a>
-      <a href="Sohn_Kyle_Resume.pdf" download>RESUME</a>
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Kyle Sohn, home">KS<span class="hangul" aria-hidden="true">손</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="Sohn_Kyle_Resume.pdf" class="nav-cta" download>Resume ↓</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <section class="hero">
-    <div class="intro-text">
-      <h1>I’m Kyle Sohn.</h1>
-      <p class="tagline">UI/UX designer fueled by emotion, crafting tech-led, community-focused solutions.</p>
-    </div>
-  </section>
+  <main id="main">
 
-  <section class="bio" id="about">
-    <div class="about-container">
-      <div class="profile-photo"></div>
-      <div class="about-text">
-<p class="subtitle" style="color: #c8102e;">
-  I am a Seoul-raised, NYC-styled creative who designs with swagger, empathy, and precision.
-</p>
-        <p class="bio-blurb">
-          <p tabindex="0" style="outline: none;"></p>
-          I’m Kyle Sohn—a UI/UX designer with a fashion-trained eye, shaped by modeling and a deep love for aesthetic expression. I design like I get dressed: with intention, flow, and individuality. Raised in Seoul and rooted in rhythm, I bring sharp instincts from a life of hooping and top-tier gaming—top 10 NA Vayne, undefeated in Smash. My work lives at the intersection of style and function—built to connect, designed to stand out.
-        </p>
-<p class="bio-blurb" style="margin: 1rem 0;">Former Product Manager <strong style="color:#002f6c;">@Pointz</strong></p>
-<p class="bio-blurb" style="margin: 1rem 0;">Current Model <strong style="color:#002f6c;">@UMODELSNYC</strong></p>
-<p class="bio-blurb" style="margin: 1rem 0;">Incoming Data Science Master's Student <strong style="color:#002f6c;">@UPenn</strong></p>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="mono-label reveal-1">Hey, I’m</span>
+          <h1 class="hero-name reveal-1"><span>Kyle</span><span>Sohn<em aria-hidden="true">.</em></span></h1>
+          <p class="hero-line reveal-2">I design things, build things, and lately, dig into data. Right now I’m studying Data Science &amp; AI at Penn.</p>
+          <div class="hero-actions reveal-3">
+            <a href="#work" class="btn btn-primary">See the work <span aria-hidden="true">→</span></a>
+            <a href="#contact" class="btn btn-ghost">Say hi</a>
+          </div>
+        </div>
+        <figure class="polaroid reveal-2">
+          <img src="profilephoto.jpg" alt="Kyle Sohn" width="420" height="525">
+          <figcaption>Seoul → NYC → Philly</figcaption>
+          <span class="sticker sticker-red" aria-hidden="true">손</span>
+        </figure>
       </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track"><span>Design</span><i aria-hidden="true">✦</i><span>Data</span><i aria-hidden="true">✦</i><span>Code</span><i aria-hidden="true">✦</i><span>Seoul</span><i aria-hidden="true">✦</i><span>New York</span><i aria-hidden="true">✦</i><span>Philadelphia</span><i aria-hidden="true">✦</i><span>Fashion</span><i aria-hidden="true">✦</i><span>Film</span><i aria-hidden="true">✦</i><span>Hoops</span><i aria-hidden="true">✦</i><span>League</span><i aria-hidden="true">✦</i><span>Smash</span><i aria-hidden="true">✦</i><span>Food</span><i aria-hidden="true">✦</i><span>Design</span><i aria-hidden="true">✦</i><span>Data</span><i aria-hidden="true">✦</i><span>Code</span><i aria-hidden="true">✦</i><span>Seoul</span><i aria-hidden="true">✦</i><span>New York</span><i aria-hidden="true">✦</i><span>Philadelphia</span><i aria-hidden="true">✦</i><span>Fashion</span><i aria-hidden="true">✦</i><span>Film</span><i aria-hidden="true">✦</i><span>Hoops</span><i aria-hidden="true">✦</i><span>League</span><i aria-hidden="true">✦</i><span>Smash</span><i aria-hidden="true">✦</i><span>Food</span><i aria-hidden="true">✦</i></div>
     </div>
-  </section>
 
-<section class="work-section" id="work">
-  <h2>WORK</h2>
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-text">
+          <span class="mono-label">01 / About</span>
+          <h2 class="display">Who <em>am I?</em></h2>
+          <p>I’ve always been a creative at heart. It started with photography, then I spent a lot of time modeling, and in my senior year at Brown I took a UI/UX class and had so much fun with it. A lot of the design work on this site came out of that class.</p>
+          <p>I studied Computer Science-Economics at Brown, and now I’m getting my master’s in Data Science &amp; AI at Penn, so a lot of my newer projects mix design with data. Outside of school, I’m usually playing basketball or gaming.</p>
 
-  <div class="project-container">
-    <div class="project-card">
-      <a href="responsiveredesign.html" target="_blank">
-        <img src="responsiveredesign/Asmara Restaurant.jpg" alt="Nahum's Mom's Restaurant Website Redesign">
-        <div class="project-content">
-          <h3>Asmara Restaurant Redesign</h3>
-          <p>A warm, responsive redesign of a local family-owned restaurant's website with accessibility and storytelling at the core.</p>
+          <ul class="timeline">
+            <li><span class="when">Now</span><span>M.S.E. in Data Science &amp; AI <strong>@ UPenn</strong></span></li>
+            <li><span class="when">Class of 2025</span><span>B.S. in Computer Science-Economics <strong>@ Brown</strong></span></li>
+            <li><span class="when">During school</span><span>Model <strong>@ gigantpr</strong> · <strong>@ emgmodels</strong></span></li>
+            <li><span class="when">Before</span><span>Product Manager <strong>@ Pointz</strong></span></li>
+          </ul>
         </div>
-      </a>
-    </div>
 
-    <div class="project-card">
-      <a href="iterativeredesignfinalportfol.html" target="_blank">
-        <img src="apriora-redesign-main/apriorabackground.jpg" alt="Apriora AI Redesign Case Study">
-        <div class="project-content">
-          <h3>Apriora AI Redesign</h3>
-          <p>A modern, recruiter-focused redesign of an AI interview platform, blending clarity, trust, and emotional warmth through thoughtful iteration.</p>
+        <aside class="interests" aria-labelledby="interestsTitle">
+          <h3 id="interestsTitle">Things I’m into</h3>
+          <ul>
+            <li><span class="n">01</span><span>Fashion</span></li>
+            <li><span class="n">02</span><span>Street photography &amp; film</span></li>
+            <li><span class="n">03</span><span>Basketball &amp; volleyball</span></li>
+            <li><span class="n">04</span><span><a href="https://op.gg/lol/summoners/na/curruy-NA2" target="_blank" rel="noopener">League of Legends <span class="lvl">Master</span> <span class="ext" aria-hidden="true">↗</span></a></span></li>
+            <li><span class="n">05</span><span>Super Smash Bros</span></li>
+            <li><span class="n">06</span><span>NBA 2K</span></li>
+            <li><span class="n">07</span><span>Food</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="container">
+        <div class="section-head">
+          <span class="mono-label">02 / Work</span>
+          <h2 class="display big">Work<sup>10</sup></h2>
+          <p>Things I’ve built and things I’ve designed.</p>
         </div>
-      </a>
-    </div>
 
-    <div class="project-card">
-      <a href="usermindscapes.html" target="_blank">
-        <img src="personasandstoryboarding/cutecartoon.jpg" alt="User Mindscapes">
-        <div class="project-content">
-          <h3>User Mindscapes</h3>
-          <p>Instead of crafting wireframes, we explore the thoughts, emotions, and behaviors that shape self-checkout experiences. These “mindscapes” reveal not just what users do, but why.</p>
+        <h3 class="group-title"><span>Data &amp; code</span><small>06 projects</small></h3>
+        <div class="project-grid">
+          <article class="project-card featured">
+            <a href="convert/index.html">
+              <div class="project-media dark"><img src="convert/cover.png" alt="CONVERT dashboard summarizing win rate and early-game leads across 162 League of Legends matches" loading="lazy"></div>
+              <div class="project-content">
+                <span class="project-num">Data science · Solo</span>
+                <h3>CONVERT: Why Leads Slip Away</h3>
+                <p>In League of Legends, I kept losing games I was clearly winning early on. So I pulled 162 of my own matches from the game’s public data, tracked how far ahead I was at each point in the game, and built a dashboard and a simple prediction model to see when an early lead actually turns into a win, and when I throw it away.</p>
+                <ul class="tags"><li>Python</li><li>Riot API</li><li>scikit-learn</li><li>Chart.js</li></ul>
+                <span class="project-link">Explore the dashboard <span class="arrow" aria-hidden="true">→</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="project-card">
+            <a href="https://github.com/curruy123/EcoEnergy-Insights" target="_blank" rel="noopener">
+              <div class="project-media"><img src="projects/ecoenergy.png" alt="Correlogram of farm productivity, energy per capita, GDP and CO2 emissions by country" loading="lazy"></div>
+              <div class="project-content">
+                <span class="project-num">Data analysis · Team of 3</span>
+                <h3>EcoEnergy Insights</h3>
+                <p>A group project on whether a country’s energy use and CO₂ emissions have anything to do with how productive its farms are. We combined USDA and Our World in Data numbers from 1993 to 2021, ran t-tests and K-means clustering, and found real changes in farm productivity and CO₂ in recent years.</p>
+                <ul class="tags"><li>Python</li><li>pandas</li><li>SciPy</li><li>scikit-learn</li><li>seaborn</li></ul>
+                <span class="project-link">View on GitHub <span class="arrow" aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="project-card">
+            <a href="https://github.com/curruy123/Sneaker-Bargains" target="_blank" rel="noopener">
+              <div class="project-media"><img src="projects/sneaker-bargains.png" alt="Sneaker Bargains app: a search bar, platform filters and product cards with price ranges" loading="lazy"></div>
+              <div class="project-content">
+                <span class="project-num">Full-stack · Team of 4</span>
+                <h3>Sneaker Bargains</h3>
+                <p>A web app for comparing sneaker resale prices across sites, built with three teammates. I did the Bootstrap UI (the product cards, alerts and platform toggles) and wrote all the DOM tests and about half the unit tests.</p>
+                <ul class="tags"><li>React</li><li>TypeScript</li><li>Java</li><li>Bootstrap</li><li>Vitest</li></ul>
+                <span class="project-link">View on GitHub <span class="arrow" aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
         </div>
-      </a>
-    </div>
+        <div class="project-grid three">
+          <article class="project-card">
+            <a href="https://github.com/curruy123/Search" target="_blank" rel="noopener">
+              <div class="project-media"><img src="projects/search.png" alt="Search results ranked by relevance and PageRank" loading="lazy"></div>
+              <div class="project-content">
+                <span class="project-num">Search engine · Python</span>
+                <h3>Search</h3>
+                <p>A search engine for Wikipedia pages, written in Python. It scores words with TF-IDF, ranks pages with PageRank, and lets you search from the terminal.</p>
+                <ul class="tags"><li>Python</li><li>NLTK</li><li>pytest</li></ul>
+                <span class="project-link">View on GitHub <span class="arrow" aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="project-card">
+            <a href="https://github.com/curruy123/Sketchy" target="_blank" rel="noopener">
+              <div class="project-media"><img src="projects/sketchy.png" alt="Drawing app with a toolbar and shapes on a canvas" loading="lazy"></div>
+              <div class="project-content">
+                <span class="project-num">Desktop app · Java</span>
+                <h3>Sketchy</h3>
+                <p>A drawing app in JavaFX. You can draw freehand or add shapes, then move, resize, rotate, recolor and layer them. Undo and redo work on everything, and you can save and load drawings.</p>
+                <ul class="tags"><li>Java</li><li>JavaFX</li><li>OOP</li></ul>
+                <span class="project-link">View on GitHub <span class="arrow" aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="project-card">
+            <a href="https://github.com/curruy123/Tetris" target="_blank" rel="noopener">
+              <div class="project-media"><img src="projects/tetris.png" alt="Block-stacking game board with falling pieces" loading="lazy"></div>
+              <div class="project-content">
+                <span class="project-num">Game · Java · Pair project</span>
+                <h3>Tetris</h3>
+                <p>Tetris, built in JavaFX with a partner. Pieces fall and rotate, full rows clear, and you can switch between three speeds.</p>
+                <ul class="tags"><li>Java</li><li>JavaFX</li></ul>
+                <span class="project-link">View on GitHub <span class="arrow" aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          </article>
+        </div>
 
-<div class="project-card" style="overflow: hidden; border-radius: 8px;">
-  <a href="pointz.html" target="_blank" style="text-decoration: none; color: inherit;">
-    <img
-      src="pointz/pointz3.png"
-      alt="Pointz"
-      style="
-        display: block;
-        width: 80%;
-        height: auto;
-        object-fit: contain;
-        margin: 60px auto 0;  
-      "
-    >
-    <div
-      class="project-content"
-      style="
-        padding: 1.5rem 1rem 1rem;
-      "
-    >
-      <h3 style="margin-top: 5rem;">Redesigning Pointz’s Homepage</h3>
-      <p>A Figma homescreen mockup earned me a PM role —and refocused Pointz’s homepage on what matters: safe, fast, and favorite routes.</p>
-    </div>
-  </a>
-</div>
+        <h3 class="group-title"><span>Design case studies</span><small>04 projects</small></h3>
+        <div class="project-grid">
+          <article class="project-card">
+            <a href="responsiveredesign.html">
+              <div class="project-media"><img src="responsiveredesign/Asmara Restaurant.jpg" alt="Asmara Restaurant website redesign" loading="lazy"></div>
+              <div class="project-content">
+                <span class="project-num">Responsive web · Shipped</span>
+                <h3>Asmara Restaurant</h3>
+                <p>My friend Nahum’s mom runs an Eritrean restaurant, and the old website didn’t do it justice. I redesigned it, and we launched it.</p>
+                
+                <span class="project-link">Read the case study <span class="arrow" aria-hidden="true">→</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="project-card">
+            <a href="iterativeredesignfinalportfol.html">
+              <div class="project-media"><img src="apriora-redesign-main/apriorabackground.jpg" alt="Apriora AI interview platform redesign" loading="lazy"></div>
+              <div class="project-content">
+                <span class="project-num">Iterative redesign · Team</span>
+                <h3>Apriora AI</h3>
+                <p>A class redesign of an AI interview platform for recruiters, done with the founders’ input. I handled the final visual polish.</p>
+                
+                <span class="project-link">Read the case study <span class="arrow" aria-hidden="true">→</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="project-card">
+            <a href="usermindscapes.html">
+              <div class="project-media"><img src="personasandstoryboarding/cutecartoon.jpg" alt="Illustration from the User Mindscapes project" loading="lazy"></div>
+              <div class="project-content">
+                <span class="project-num">UX research · Solo</span>
+                <h3>User Mindscapes</h3>
+                <p>I watched people use the CVS self-checkout and mapped out what they were thinking and feeling at each step.</p>
+                
+                <span class="project-link">Read the case study <span class="arrow" aria-hidden="true">→</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="project-card">
+            <a href="pointz.html">
+              <div class="project-media contain"><img src="pointz/pointz3.png" alt="Pointz app logo" loading="lazy"></div>
+              <div class="project-content">
+                <span class="project-num">Product · Shipped</span>
+                <h3>Pointz Homepage</h3>
+                <p>As a marketing intern, I pitched a new homepage in Figma. It got me promoted to PM, and the design is in the app now.</p>
+                
+                <span class="project-link">Read the case study <span class="arrow" aria-hidden="true">→</span></span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <section class="contact" id="contact">
+      <video class="contact-bg" id="contactVideo" autoplay muted loop playsinline aria-hidden="true">
+        <source src="homepage/hoopingvideo.MOV" type="video/mp4" />
+      </video>
+      <div class="container contact-inner">
+        <span class="mono-label light">03 / Contact</span>
+        <h2 class="display huge">Hit me <em>up.</em></h2>
+        <p class="contact-line">Always happy to talk design, data, or basketball.</p>
+        <ul class="contact-list">
+          <li><a href="mailto:kylethesohn@gmail.com"><span class="k">Email</span><span class="v">kylethesohn@gmail.com</span><span class="go" aria-hidden="true">↗</span></a></li>
+          <li><a href="tel:+14014654722"><span class="k">Phone</span><span class="v">401-465-4722</span><span class="go" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.instagram.com/ksohn1/" target="_blank" rel="noopener"><span class="k">Instagram</span><span class="v">@ksohn1</span><span class="go" aria-hidden="true">↗</span></a></li>
+        </ul>
+        <div class="contact-icons">
+          <a href="https://www.instagram.com/ksohn1/tagged/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://github.com/curruy123" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/kyle-sohn/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.83v1.54h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V21h-4V9.75Z"/></svg>
+          </a>
+          <a href="mailto:kylethesohn@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
 
+  </main>
 
-  
+  <footer class="site-footer">
+    <div class="container"><span>© <span id="year">2026</span> Kyle Sohn</span><span class="hangul" aria-hidden="true">손</span></div>
+  </footer>
 
-<section class="contact-section" id="contact">
-  <video autoplay muted loop playsinline class="contact-bg">
-    <source src="homepage/hoopingvideo.MOV" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <div class="contact-overlay">
-    <h2>Enjoy my work? Hit me up!</h2>
+  <script>
+    (function () {
+      const navbar = document.getElementById('navbar');
+      const toggle = document.getElementById('menuToggle');
+      const links = document.getElementById('navLinks');
+      const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 8);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
 
-    <p class="contact-tagline">From courts to concepts—let’s create something unforgettable.
+      const closeMenu = () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+      };
+      toggle.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
-      <p class = "contact-tagline">Instagram: @ksohn1</p>
-      <p class = "contact-tagline">Email: kylethesohn@gmail.com</p>
-<p class = "contact-tagline">Phone number: 401-465-4722</p>
+      const navMap = {};
+      links.querySelectorAll('a[href^="#"]').forEach(a => navMap[a.getAttribute('href').slice(1)] = a);
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const link = navMap[entry.target.id];
+          if (link && entry.isIntersecting) {
+            Object.values(navMap).forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      Object.keys(navMap).forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
 
-      
-
-      
-    </p>
-    <div class="contact-icons">
-      <a href="https://www.instagram.com/ksohn1/tagged/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" />
-      </a>
-      <a href="https://github.com/curruy123" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" />
-      </a>
-      <a href="https://www.linkedin.com/in/kyle-sohn/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
-      </a>
-      <!-- New email button -->
-      <a href="mailto:kylethesohn@gmail.com" title="Email me">
-        <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Email" />
-      </a>
-    </div>
-  </div>
-</section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const hash = window.location.hash;
-    if (hash) {
-      const target = document.querySelector(hash);
-      if (target) {
-        setTimeout(() => {
-          target.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+      // Cards rise in as you scroll
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const cards = document.querySelectorAll('.project-card');
+      if (!reduce && 'IntersectionObserver' in window) {
+        cards.forEach(c => c.classList.add('pre'));
+        const io = new IntersectionObserver(es => es.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); }
+        }), { rootMargin: '0px 0px -8% 0px' });
+        cards.forEach(c => io.observe(c));
       }
-    }
-  });
-</script>
 
+      const video = document.getElementById('contactVideo');
+      if (reduce && video) { video.removeAttribute('autoplay'); video.pause(); }
 
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>

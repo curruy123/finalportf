@@ -1,336 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Apriora Iterative Redesign – Case Study</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-    }
-    html, body {
-      scroll-behavior: smooth;
-      height: 100%;
-      overflow-y: scroll;
-    }
-    body {
-      font-family: 'Nanum Gothic', sans-serif;
-      color: #1f2937;
-      line-height: 1.6;
-    }
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; border-radius: 8px; }
-
-    .navbar {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.6rem;
-      background: white;
-      border-bottom: 3px solid black;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .logo {
-      font-size: 2rem;
-      letter-spacing: 2px;
-      color: #c8102e;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-    .nav-links a {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0; bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: #c8102e;
-      transition: width 0.3s ease;
-    }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .hero-case {
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      margin-left: -50vw;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 4rem 2rem 5rem;
-      background:
-        linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-        url('apriora-redesign-main/apriorabackground.jpg') center/cover no-repeat;
-      background-blend-mode: lighten;
-      border-bottom: 3px solid #000;
-    }
-    .hero-case h1 {
-      font-size: 4.5rem;
-      font-weight: 800;
-      color: #c8102e;
-      margin-bottom: 1.25rem;
-    }
-    .hero-case .tagline {
-      font-size: 1.8rem;
-      color: #002f6c;
-      max-width: 850px;
-      margin-bottom: 4rem;
-      line-height: 1.6;
-    }
-
-    .jump-links {
-      text-align: center; padding: 1rem 0; background: transparent;
-    }
-    .jump-links h2 {
-      font-size: 2.25rem; color: #c8102e; font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .jump-links .links {
-      display: grid;
-      grid-template-columns: repeat(3, auto);
-      gap: 1.5rem 3rem;
-      justify-content: center;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .jump-links .links a {
-      font-size: 1rem; font-weight: 600; text-transform: uppercase;
-      color: #002f6c; position: relative; padding: 0.5rem 1rem;
-    }
-    .jump-links .links a::after {
-      content: ""; position: absolute; left: 0; bottom: -4px;
-      width: 0; height: 2px; background: #c8102e; transition: width .3s;
-    }
-    .jump-links .links a:hover::after { width: 100%; }
-
-    .main-content {
-      max-width: 900px;
-      margin: 2rem auto 4rem;
-      padding: 0 1rem;
-    }
-    .main-content section {
-      background: #fff;
-      margin-bottom: 5rem;
-      padding: 2rem;
-      border-left: 6px solid #002f6c;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      scroll-margin-top: 150px;
-    }
-.main-content section h2 {
-  font-size: 2.25rem;
-  color: #c8102e;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  line-height: 1.3;
-}
-    .main-content section p,
-    .main-content section ul {
-      font-size: 1.3rem;
-      color: #002f6c;
-      text-align: left;
-      margin: 1rem 0;
-    }
-    .main-content img {
-      margin: 1rem auto;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apriora AI Redesign — Kyle Sohn</title>
+  <meta name="description" content="A class redesign of Apriora, an AI interview platform for recruiters." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nanum+Gothic:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case.css">
 </head>
 <body>
-  <nav class="navbar">
-    <a href="index.html" class="logo">KS</a>
-    <div class="nav-links">
-      <a href="index.html#about">ABOUT</a>
-      <a href="index.html#work">WORK</a>
-      <a href="index.html#contact">CONTACT</a>
-      <a href="Sohn_Kyle_Resume.pdf" download>RESUME</a>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Kyle Sohn, home">KS<span class="hangul" aria-hidden="true">손</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="Sohn_Kyle_Resume.pdf" class="nav-cta" download>Resume ↓</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <section class="hero-case">
-    <h1>Apriora Iterative Design</h1>
-    <p class="tagline">
-      A <strong>user-centered redesign</strong> of an AI-based interview platform that prioritizes <strong>clarity</strong>, <strong>human connection</strong>, and <strong>recruiter efficiency</strong>.
-    </p>
+  <main id="main">
+    <section class="case-hero">
+      <div class="container">
+        <a href="index.html#work" class="back-link"><span aria-hidden="true">←</span> All work</a>
+        <span class="eyebrow">Iterative redesign · Case study</span>
+        <h1>Apriora AI Redesign</h1>
+        <p class="lede">A class redesign of Apriora, an AI startup that runs job interviews for recruiters. We got to work directly with the founders.</p>
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Visual design, final polish</dd></div>
+          <div><dt>Team</dt><dd>Class group project</dd></div>
+          <div><dt>Tools</dt><dd>Figma</dd></div>
+          <div><dt>Client</dt><dd>Apriora</dd></div>
+        </dl>
+        <div class="hero-shot"><img src="apriora-redesign-main/apriorabackground.jpg" alt="Apriora AI redesign"></div>
+      </div>
+    </section>
 
-<div class="jump-links">
-  <h2>JUMP TO</h2>
-  <div class="links">
-    <a href="#role">Role & Team</a>
-    <a href="#context">Context & Problem</a>
-    <a href="#research">Research</a>
-    <a href="#process">Process</a>
-    <a href="#solution">Solution</a>
-    <a href="#learnings">Learnings</a>
-  </div>
-</div>
+    <div class="container case-body">
+      <nav class="toc" aria-label="On this page">
+        <p>On this page</p>
+        <ol>
+          <li><a href="#role">Role &amp; Team</a></li>
+          <li><a href="#context">Context &amp; Problem</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#learnings">Learnings</a></li>
+        </ol>
+      </nav>
+      <article class="content">
+        <section id="role">
+          <h2><span class="num">01</span>Role &amp; Team</h2>
+          <p>We designed most of the components together in Figma. My main job was the final pass on the interface: picking colors so the important stuff stood out, fixing spacing, rounding corners, and making sure every screen looked consistent and on-brand.</p>
+          <p>Basically, I was the last person to touch each screen before we called it done.</p>
+        </section>
+        <section id="context">
+          <h2><span class="num">02</span>Context &amp; Problem</h2>
+          <figure>
+            <img src="apriora-redesign-main/apriorafounders.jpg" alt="Apriora's founders">
+            <figcaption>Apriora’s founders</figcaption>
+          </figure>
+          <p>Apriora uses AI to run behavioral and technical interviews for recruiters. We met with the founders, and their biggest challenge was making an AI interview still feel like talking to a real person.</p>
+          <p>We wanted the platform to be easy to use, but also to show why Apriora’s approach is different from other AI hiring tools.</p>
+        </section>
+        <section id="research">
+          <h2><span class="num">03</span>Research</h2>
+          <figure class="narrow">
+            <img src="apriora-redesign-main/apriorastartup.png" alt="Apriora announcement">
+          </figure>
+          <p>Talking to the founders shaped the whole design. Most AI tools only care about speed, but Apriora also cares about how the candidate feels during the interview.</p>
+          <p>So we designed for two people: the recruiter, who wants useful results, and the candidate, who should feel comfortable. That affected the layout, the wording and the order of every step.</p>
+        </section>
+        <section id="process">
+          <h2><span class="num">04</span>Process</h2>
+          <p>We went through four rounds:</p>
+          <div class="steps">
+            <div class="step"><div class="shot"><img src="apriora-redesign-main/sketch.jpg" alt="Early sketches"></div><div class="body"><h4>Sketches</h4><p>Everyone sketched layout ideas on their own first.</p></div></div>
+            <div class="step"><div class="shot"><img src="apriora-redesign-main/lofiprototype.png" alt="Lo-fi prototype"></div><div class="body"><h4>Lo-fi prototype</h4><p>Rough wireframes to check the structure.</p></div></div>
+            <div class="step"><div class="shot"><img src="apriora-redesign-main/hifi.png" alt="Hi-fi prototype"></div><div class="body"><h4>Hi-fi prototype</h4><p>Real visuals, branding and clickable interactions.</p></div></div>
+            <div class="step"><div class="shot"><img src="apriora-redesign-main/usertest.png" alt="User testing session"></div><div class="body"><h4>User testing</h4><p>Watched people use it and wrote down where they got stuck.</p></div></div>
+          </div>
+        </section>
+        <section id="solution">
+          <h2><span class="num">05</span>Solution</h2>
+          <div class="carousel" aria-roledescription="carousel" aria-label="Final screens">
+            <div class="carousel-frame">
+              <img src="apriora-redesign-main/slideshow/Calendar.png" alt="Scheduling" data-caption="Scheduling" class="on">
+              <img src="apriora-redesign-main/slideshow/Input Questions.png" alt="Setting up interview questions" data-caption="Setting up interview questions">
+              <img src="apriora-redesign-main/slideshow/Interview.png" alt="Interview room" data-caption="Interview room">
+              <img src="apriora-redesign-main/slideshow/Recruiter Apriora Customization Section.png" alt="Branding settings for recruiters" data-caption="Branding settings for recruiters">
+              <img src="apriora-redesign-main/slideshow/Waiting Room.png" alt="Waiting room" data-caption="Waiting room">
+              <button class="carousel-btn prev" type="button" aria-label="Previous screen">←</button>
+              <button class="carousel-btn next" type="button" aria-label="Next screen">→</button>
+            </div>
+            <div class="carousel-bar"><span class="carousel-caption" aria-live="polite"></span><div class="dots"></div></div>
+          </div>
+          <p>Here’s what we ended up with:</p>
+          <ul class="list">
+            <li>A scheduling page with calm colors, where the important info is easy to spot</li>
+            <li>A waiting room that feels familiar, like joining a normal video call</li>
+            <li>An interview room with transcripts for both sides and a self-view</li>
+            <li>Branding settings, so companies can add their logo and colors and name the AI interviewer</li>
+          </ul>
+          <h3>What testing changed</h3>
+          <p>We had people go through the recruiter side, from setting up an interview to reading the results. Some skipped the instructions, some got lost after the interview ended, and most relied on visual cues to figure out what to do next.</p>
+          <div class="cards">
+            <div class="card"><span class="k">Problem</span><p>People missed instructions and misread labels.</p><span class="k">Fix</span><p>Clearer labels (“Role” became “Candidate Role”) and tooltips.</p></div>
+            <div class="card"><span class="k">Problem</span><p>People got lost after the interview ended.</p><span class="k">Fix</span><p>A cleaner layout and easier navigation.</p></div>
+          </div>
+        </section>
+        <section id="learnings">
+          <h2><span class="num">06</span>Learnings</h2>
+          <p>Working in a team means some of your ideas get changed or cut. That was hard at first, but the final product was better for it.</p>
+          <p>I also started using Figma to talk through ideas, not just to make mockups. It made it easier to show what I meant and to disagree without it getting personal.</p>
+        </section>
+
+      </article>
     </div>
-  </section>
 
-<div class="main-content">
-  <section id="role">
-    <h2>🤝 Role & Team</h2>
-    <p>Most of this project was designing components in Figma as a team, but <strong style = "font-weight: 2000;">my core role was refining and polishing the final interface</strong>. I focused on visual clarity: <strong>selecting colors for hierarchy</strong>, adjusting spacing and rounded edges for flow, and making sure the product <strong>felt clean, consistent, and branded</strong>. I was the “final filter,” ensuring every detail aligned with the tone of a trustworthy AI platform.</p>
-  </section>
+    <section class="next-project">
+      <div class="container">
+        <a href="usermindscapes.html">
+          <div>
+            <span class="eyebrow">Next case study</span>
+            <h2>User Mindscapes</h2>
+          </div>
+          <span class="arrow-circle" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
 
-  <section id="context">
-    <h2>🌍 Context & Problem</h2>
-    <img src = "apriora-redesign-main/apriorafounders.jpg" style = "max-width:550px; margin-bottom: 50px"; alt="Apriora Founders">
-    <p>Apriora is an AI startup streamlining behavioral and technical interviews for recruiters. With direct access to the founders, we grounded our work in their core challenge: replicating authentic, human interviews using AI. Their approach was nuanced, and we designed to highlight this—ensuring the platform felt intuitive while communicating its distinct structure.</p>
-  </section>
-
-  <section id="research">
-    <h2>🔍 Research</h2>
-    <img src = "apriora-redesign-main/apriorastartup.png" style = "max-width:550px; margin-bottom: 50px" alt="Apriora Startup";>
-    <p>Speaking with Apriora’s founders shaped our entire design. Their product blends speed with emotional nuance—something most AI tools don’t. We listened closely and aligned our design to reinforce recruiter insight and candidate comfort. This understanding influenced everything from layout and copy to the overall user journey.</p>
-  </section>
-
-<section id="process">
-  <h2 style="text-align: center;">🔀 Process</h2>
-  <p style="text-align: center; font-size: 1.2rem;">Our process followed an iterative design cycle:</p>
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
-    
-    <div style="text-align: center;">
-      <p style="font-size: 1.1rem; font-weight: bold;">1. Sketching</p>
-      <p style="font-size: 0.95rem;">We mapped early layout and flow ideas with individual sketches.</p>
-      <img src="apriora-redesign-main/sketch.jpg" alt="Sketch" style="max-width: 250px; width: 100%; border-radius: 8px;">
-    </div>
-
-    <div style="text-align: center;">
-      <p style="font-size: 1.1rem; font-weight: bold;">2. Lo-Fi Prototype</p>
-      <p style="font-size: 0.95rem;">We created rough wireframes to test structure and functionality.</p>
-      <img src="apriora-redesign-main/lofiprototype.png" alt="Lo-Fi Prototype" style="max-width: 250px; width: 100%; border-radius: 8px;">
-    </div>
-
-    <div style="text-align: center;">
-      <p style="font-size: 1.1rem; font-weight: bold;">3. Hi-Fi Prototype</p>
-      <p style="font-size: 0.95rem;">We added refined visuals, branding, and interactivity.</p>
-      <img src="apriora-redesign-main/hifi.png" alt="Hi-Fi Prototype" style="max-width: 350px; width: 100%; border-radius: 8px; margin-top: 50px;">
-    </div>
-
-    <div style="text-align: center;">
-      <p style="font-size: 1.1rem; font-weight: bold;">4. User Testing</p>
-      <p style="font-size: 0.95rem;">We observed real users to pinpoint friction and refine the design.</p>
-      <img src="apriora-redesign-main/usertest.png" alt="User Testing" style="max-width: 250px; width: 100%; border-radius: 8px;">
-    </div>
-
-  </div>
-</section>
-
-
-<section id="solution">
-  <h2 style="text-align: center; font-size: 2.25rem; color: #c8102e;">💡 Solution</h2>
-
-<div style="position: relative; max-width: 500px; margin: auto;">
-  <img id="slideshow" src="apriora-redesign-main/slideshow/Calendar.png" alt="Solution Slideshow"
-       style="width: 100%; height: auto; border-radius: 8px; transition: opacity 0.5s ease-in-out; opacity: 1;">
-
-  <!-- Arrows -->
-  <button onclick="prevImage()" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%);
-          background: rgba(0,0,0,0.3); border: none; color: white; font-size: 2rem; padding: 0 0.5rem; cursor: pointer;">&#10094;</button>
-  <button onclick="nextImage()" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%);
-          background: rgba(0,0,0,0.3); border: none; color: white; font-size: 2rem; padding: 0 0.5rem; cursor: pointer;">&#10095;</button>
-</div>
-
-<script>
-  const images = [
-    "apriora-redesign-main/slideshow/Calendar.png",
-    "apriora-redesign-main/slideshow/Input Questions.png",
-    "apriora-redesign-main/slideshow/Interview.png",
-    "apriora-redesign-main/slideshow/Recruiter Apriora Customization Section.png",
-    "apriora-redesign-main/slideshow/Waiting Room.png"
-  ];
-  let index = 0;
-  let slideshow = document.getElementById("slideshow");
-  let interval;
-
-  function showImage(i) {
-    slideshow.style.opacity = 0;
-    setTimeout(() => {
-      slideshow.src = images[i];
-      slideshow.style.opacity = 1;
-    }, 300);
-  }
-
-  function nextImage() {
-    index = (index + 1) % images.length;
-    showImage(index);
-    resetInterval();
-  }
-
-  function prevImage() {
-    index = (index - 1 + images.length) % images.length;
-    showImage(index);
-    resetInterval();
-  }
-
-  function startSlideshow() {
-    interval = setInterval(() => {
-      nextImage();
-    }, 2500);
-  }
-
-  function resetInterval() {
-    clearInterval(interval);
-    startSlideshow();
-  }
-
-  startSlideshow();
-</script>
-
-
-
-  <p style="font-size: 1.2rem; margin-top: 1.5rem;">
-    We designed a streamlined interface that felt both human and efficient. Highlights included:
-  </p>
-  <ul style="font-size: 1.1rem; margin-top: 1rem; margin-left: 1.25rem;">
-    <li>Smooth scheduling flow with calming color hierarchy</li>
-    <li>Welcoming waiting room with familiar cues</li>
-    <li>Dual-transcript meeting room with self-view</li>
-    <li>Custom branding—logos, color, and AI voice naming</li>
-  </ul>
-
-  <h3 style="font-size: 1.2rem; color: #002f6c; margin-top: 2rem;">📊 User Testing</h3>
-
-  <p style="font-size: 1.0rem; margin-top: 1rem;">
-    We asked users to simulate a recruiter flow—from setup to insights. Some skipped key instructions, struggled with post-interview steps, and relied on visual cues to guide them.
-  </p>
-
-  <p style="font-size: 1.0rem; margin-top: 1rem;">
-    Based on feedback, we clarified labels (“Role” → “Candidate Role”), added tooltips, refined layout, and improved navigation.
-  </p>
-
-</section>
-
-
-
-  <section id="learnings">
-    <h2 style="text-align: center;">📚 Learnings</h2>
-    <p>One key takeaway: designing as a team means letting go. Some of my ideas evolved, some got replaced—and the final result was stronger for it. I also learned how powerful Figma can be not just for prototyping, but for dialogue. It helped us explain intent, challenge each other respectfully, and build a better product together.</p>
-  </section>
-</div>
+  <footer class="site-footer"><div class="container"><span>© <span id="year">2026</span> Kyle Sohn</span><span class="hangul" aria-hidden="true">손</span></div></footer>
+  <script src="case.js"></script>
 </body>
 </html>

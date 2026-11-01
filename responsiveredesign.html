@@ -1,415 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Asmara Restaurant Redesign – Case Study</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-  <style>
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0; padding: 0;
-}
-html, body {
-  scroll-behavior: smooth;
-  height: 100%;
-  overflow-y: scroll;
-}
-
-body {
-  font-family: 'Nanum Gothic', sans-serif;
-  color: #1f2937;
-  line-height: 1.6;
-}
-a { text-decoration: none; color: inherit; }
-img { display: block; max-width: 100%; border-radius: 8px; }
-
-.navbar {
-  width: 100%;
-  box-sizing: border-box;      
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.6rem;               
-  background: white;
-  border-bottom: 3px solid black;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.logo {
-  margin: 0;                   
-  font-size: 2rem;
-  letter-spacing: 2px;
-  color: #c8102e;
-  text-decoration: none;
-  position: relative;
-}
-.logo::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: #c8102e;
-  transition: width 0.3s ease;
-}
-.logo:hover::after {
-  width: 100%;
-}
-
-.nav-links {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 2rem;                   
-  margin: 0;                   
-}
-
-.nav-links a {
-  position: relative;
-  text-decoration: none;
-  color: black;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0;                   
-}
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: #c8102e;
-  transition: width 0.3s ease;
-}
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-
-
-
-.hero-case {
-  width: 100vw; position: relative; left: 50%; margin-left: -50vw;
-  min-height: 100vh; display: flex; flex-direction: column;
-  align-items: center; text-align: center;
-  padding: 4rem 2rem 5rem;
-  background:
-    linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.75)),
-    url('responsiveredesign/Asmara Restaurant.jpg') center/cover no-repeat;
-  background-blend-mode: lighten;
-  backdrop-filter: blur(5px);
-  border-bottom: 3px solid #000;
-}
-.hero-case h1 {
-  font-size: 4.5rem;
-  font-weight: 800;
-  color: #c8102e;
-  margin-bottom: 1.25rem;
-  text-align: center;
-}
-.hero-case .tagline {
-  font-size: 1.8rem;
-  color: #002f6c;
-  max-width: 850px;
-  margin-bottom: 4rem;
-  text-align: center;
-  line-height: 1.6;
-}
-
-.jump-links {
-  text-align: center; padding: 1rem 0; background: transparent;
-}
-.jump-links h2 {
-  font-size: 2.25rem; color: #c8102e; font-weight: 700;
-  margin-bottom: 1rem;
-}
-.jump-links .links {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 1.5rem 3rem;
-  justify-content: center;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-.jump-links .links a {
-  font-size: 1rem; font-weight: 600; text-transform: uppercase;
-  color: #002f6c; position: relative; padding: 0.5rem 1rem;
-}
-.jump-links .links a::after {
-  content: ""; position: absolute; left: 0; bottom: -4px;
-  width: 0; height: 2px; background: #c8102e; transition: width .3s;
-}
-.jump-links .links a:hover::after { width: 100%; }
-
-.main-content {
-  max-width: 900px; margin: 2rem auto 4rem; padding: 0 1rem;
-}
-.main-content section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  margin-bottom: 5rem;
-  padding: 2rem;
-  border-left: 6px solid #002f6c;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-
-  scroll-margin-top: 150px;
-}
-
-.main-content section h2 {
-  font-size: 2.25rem;
-  color: #c8102e;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  line-height: 1.3;
-}
-.main-content section p,
-.main-content section ul {
-  font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 400; 
-  font-size: 1.3rem;
-  line-height: 1.75;
-  color: #002f6c;
-  text-align: center;
-  margin: 1rem 0;
-}
-
-.main-content section h3 {
-  font-size: 1.5rem; color: #002f6c; margin: 2rem 0 1rem;
-  text-align: center; width: 100%;
-}
-.main-content section details {
-  width: 100%; max-width: 800px; margin: 1rem auto;
-}
-
-.intro-images {
-  display: flex; justify-content: center; gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.critique-comparison {
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-}
-
-
-.intro-images figure {
-  flex: 1 1 320px; max-width: 300px;
-  display: flex; flex-direction: column; align-items: center;
-}
-.intro-images figure img {
-  width: 100%; height: auto; object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  transition: transform .3s, box-shadow .3s;
-}
-.intro-images figure img:hover {
-  transform: scale(1.02); box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-.intro-images figcaption {
-  margin-top: 1rem; color: #002f6c; font-weight: bold;
-  font-size: 1rem; text-align: center;
-}
-
-figure.centered-figure {
-  display: flex; flex-direction: column; align-items: center;
-  margin-bottom: 2rem;
-}
-figure.centered-figure figcaption {
-  margin-top: 0.75rem; color: #002f6c; font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .navbar { flex-direction: column; }
-  .nav-links { flex-direction: column; gap: 1rem; margin-top: 1rem; }
-  .hero-case h1 { font-size: 2.75rem; }
-  .hero-case .tagline { font-size: 1.2rem; }
-  .main-content section h2 { font-size: 1.9rem; }
-}
-@media (max-width: 480px) {
-  .jump-links .links { grid-template-columns: 1fr; gap: .75rem 0; }
-  .intro-images { flex-direction: column; align-items: center; }
-  .intro-images figure { max-width: 90%; }
-  .main-content section p,
-  .main-content section ul {
-    font-size: 1.1rem;
-  }
-}
-
-.critique-comparison {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-  flex-wrap: nowrap;
-  margin-bottom: 2rem;
-}
-
-.offset-image {
-  margin-top: 20px;
-}
-
-.centered-figure img {
-  max-width: 70%;
-  height: auto;
-}
-
-
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asmara Restaurant Redesign — Kyle Sohn</title>
+  <meta name="description" content="Redesigning the website for Asmara, an Eritrean restaurant run by my friend's mom." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nanum+Gothic:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case.css">
 </head>
 <body>
-  <nav class="navbar">
-    <a href="index.html" class="logo">KS</a>
-    <div class="nav-links">
-      <a href="index.html#about">ABOUT</a>
-      <a href="index.html#work">WORK</a>
-      <a href="index.html#contact">CONTACT</a>
-      <a href="Sohn_Kyle_Resume.pdf" download>RESUME</a>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Kyle Sohn, home">KS<span class="hangul" aria-hidden="true">손</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="Sohn_Kyle_Resume.pdf" class="nav-cta" download>Resume ↓</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <section class="hero-case">
-    <h1>Asmara Restaurant Redesign</h1>
-    <p class="tagline">
-      A <strong>warm</strong>, <strong>responsive</strong> redesign of a family-owned Eritrean restaurant website
-      with <strong>storytelling</strong>, <strong>accessibility</strong>, and <strong>community</strong> at the heart.
-    </p>
-<div class="jump-links">
-  <h2>JUMP TO</h2>
-  <div class="links">
-    <a href="#role">Role & Team</a>
-    <a href="#context">Context & Problem</a>
-    <a href="#research">Research</a>
-    <a href="#process">Process</a>
-    <a href="#solution">Solution</a>
-    <a href="#learnings">Learnings</a>
-  </div>
-</div>
-</section>
+  <main id="main">
+    <section class="case-hero">
+      <div class="container">
+        <a href="index.html#work" class="back-link"><span aria-hidden="true">←</span> All work</a>
+        <span class="eyebrow">Responsive web · Case study</span>
+        <h1>Asmara Restaurant Redesign</h1>
+        <p class="lede">My friend Nahum’s mom runs Asmara, an Eritrean restaurant. Her website didn’t feel anything like the place, so I redesigned it.</p>
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Design and front-end</dd></div>
+          <div><dt>Team</dt><dd>Me, then Nahum and Yabeke</dd></div>
+          <div><dt>Tools</dt><dd>Figma, HTML/CSS</dd></div>
+          <div><dt>Outcome</dt><dd>Live website</dd></div>
+        </dl>
+        <div class="hero-shot"><img src="responsiveredesign/Asmara Restaurant.jpg" alt="Asmara Restaurant redesign"></div>
+      </div>
+    </section>
 
-<div class="main-content">
+    <div class="container case-body">
+      <nav class="toc" aria-label="On this page">
+        <p>On this page</p>
+        <ol>
+          <li><a href="#role">Role &amp; Team</a></li>
+          <li><a href="#context">Context &amp; Problem</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#learnings">Learnings</a></li>
+        </ol>
+      </nav>
+      <article class="content">
+        <section id="role">
+          <h2><span class="num">01</span>Role &amp; Team</h2>
+          <figure class="narrow">
+            <img src="responsiveredesign/meandnahum.JPEG" alt="Kyle and Nahum">
+            <figcaption>Me and Nahum</figcaption>
+          </figure>
+          <p>This started as a solo project for my UI/UX class. I did all of it: the content, the branding, the design and the HTML/CSS. Later, Nahum, our friend Yabeke and I turned it into the restaurant’s real website.</p>
+          <p>It’s probably the project I care about most, because I knew the people it was for.</p>
+        </section>
+        <section id="context">
+          <h2><span class="num">02</span>Context &amp; Problem</h2>
+          <figure>
+            <img src="responsiveredesign/asmaraoriginal.jpg" alt="Asmara's original website">
+            <figcaption>The original site</figcaption>
+          </figure>
+          <p>The old site was a generic template. It didn’t show any of what makes Asmara special: the family, the culture, the food. Nahum grew up working at the restaurant, so I asked him what bugged him about the site. We landed on four main problems:</p>
+          <div class="cards">
+            <div class="card"><h4>Hard to find info</h4><p>Hours, menu and contact info were buried or missing.</p></div>
+            <div class="card"><h4>Confusing</h4><p>The search bar and some labels didn’t make sense.</p></div>
+            <div class="card"><h4>Forgettable</h4><p>No story or personality, just placeholder content.</p></div>
+            <div class="card"><h4>Hard to read</h4><p>Low contrast, no alt text, and messy page structure.</p></div>
+          </div>
+          <div class="callout"><span class="label">Goal</span><p>Make the website feel as welcoming as walking into the restaurant.</p></div>
+        </section>
+        <section id="research">
+          <h2><span class="num">03</span>Research</h2>
+          <p>I looked at other local restaurant websites to see what they did well. The good ones made the basics easy to find but still had some personality.</p>
+          <p>I also interviewed Nahum about what customers actually care about. Mostly they want to find the hours and menu fast, but they also like knowing the story behind the place.</p>
+          <p>The people using the site are mostly neighbors, the Eritrean community, and people looking for somewhere new to eat. It had to feel trustworthy and warm right away.</p>
+        </section>
+        <section id="process">
+          <h2><span class="num">04</span>Process</h2>
+          <h3>Reworking the style guide</h3>
+          <p>My classmates critiqued my first style guide, and most of the feedback was about contrast and consistency. I redid it with stronger contrast and colors that felt more like the restaurant.</p>
+          <div class="fig-grid">
+            <figure><span class="tag before">Before</span><img src="responsiveredesign/figma-before.png" alt="Style guide before critique"></figure>
+            <figure><span class="tag after">After</span><img src="responsiveredesign/figma-after.png" alt="Style guide after critique"></figure>
+          </div>
+          <h3>Feedback on the first build</h3>
+          <p>I also brought my first HTML/CSS draft to a critique session. After that I fixed the spacing, made the headings and text sizes clearer, and made the whole thing feel friendlier.</p>
+          <figure>
+            <span class="tag before">Before</span>
+            <img src="responsiveredesign/mockup-before.png" alt="First HTML/CSS draft">
+            <figcaption>My first HTML/CSS draft</figcaption>
+          </figure>
+        </section>
+        <section id="solution">
+          <h2><span class="num">05</span>Solution</h2>
+          <p>The final site fixes the problems I found:</p>
+          <ul class="list checks">
+            <li>Hours, menu and contact info are right at the top</li>
+            <li>Higher contrast and easier-to-read text</li>
+            <li>Real photos of the restaurant, and its story</li>
+          </ul>
+          <figure>
+            <img src="responsiveredesign/solution.png" alt="Final Asmara website on a laptop">
+            <figcaption>The final site</figcaption>
+          </figure>
+        </section>
+        <section id="learnings">
+          <h2><span class="num">06</span>Learnings</h2>
+          <p>Building this for people I know made me care about every small detail. I got a lot better at HTML/CSS, and I learned to try things quickly instead of overthinking them.</p>
+          <p>The biggest lesson: the design got better once I stopped thinking about what looked cool and started from what Nahum’s family actually needed.</p>
+        </section>
 
-  <section id="role">
-    <h2>🤝 Role & Team</h2>
-    <div class="intro-images">
-      <figure>
-        <img src="responsiveredesign/meandnahum.JPEG" alt="Kyle & Nahum">
-        <figcaption>Me & Nahum – collaborators & friends</figcaption>
-      </figure>
+      </article>
     </div>
-    <p>
-      This project was <strong>deeply personal</strong> and served as a real-world application of my end-to-end <strong>UI/UX design</strong> skills. I led the <strong>entire redesign process</strong>—from <strong>content strategy</strong>, <strong>branding</strong>, and <strong>narrative crafting</strong> to <strong>HTML/CSS development</strong>—for Asmara, a beloved Eritrean restaurant run by my close friend Nahum’s mom</strong>.
-    </p>
-    <p>
-      What began as a <strong>solo class case study</strong> evolved into a <strong>live website</strong> launched with my close friends Nahum and Yabeke. Our <strong>collaboration</strong>, combined with <strong>emotional stakes</strong>, made this one of my most <strong>meaningful projects</strong>.
-    </p>
-  </section>
 
-  <section id="context">
-    <h2>🌍 Context & Problem</h2>
-    <figure class="centered-figure">
-      <img src="responsiveredesign/asmaraoriginal.jpg" alt="Asmara Restaurant Original Website">
-      <figcaption>Original site—missing the restaurant’s warmth</figcaption>
-    </figure>
-    <p>
-      The <strong>original website</strong> felt <strong>cold and generic</strong>, failing to reflect the <strong>warmth, culture, and story</strong> behind Asmara. Based on conversations with Nahum, who spent his <strong>childhood working at the restaurant</strong>, I identified major usability issues:
-    </p>
-    <ul>
-      <li><strong>Efficiency</strong> – Hours, menu, and contact details were <strong>buried or missing</strong>.</li>
-      <li><strong>Learnability</strong> – Confusing <strong>search bar</strong> and <strong>ambiguous labels</strong>.</li>
-      <li><strong>Memorability</strong> – No <strong>personality</strong> or story—just generic placeholders.</li>
-      <li><strong>Accessibility</strong> – Lacked <strong>contrast</strong>, <strong>alt text</strong>, and semantic structure.</li>
-    </ul>
-    <p>These insights framed my design goal: <strong>build a site as memorable and welcoming as the food itself</strong>.</p>
-  </section>
+    <section class="next-project">
+      <div class="container">
+        <a href="iterativeredesignfinalportfol.html">
+          <div>
+            <span class="eyebrow">Next case study</span>
+            <h2>Apriora AI Redesign</h2>
+          </div>
+          <span class="arrow-circle" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
 
-  <section id="research">
-    <h2>🔍 Research</h2>
-    <p>
-      To ensure a design that was both <strong>engaging</strong> and <strong>community-rooted</strong>, I conducted a <strong>competitive analysis</strong> of local restaurant sites, noting how they balanced <strong>clarity</strong>, <strong>emotion</strong>, and <strong>accessibility</strong>.
-    </p>
-    <p>
-      I also <strong>interviewed Nahum</strong> for firsthand insights, uncovering what diners value most—from <strong>ease of access</strong> to a site that <strong>tells a story</strong>.
-    </p>
-    <p>
-      Our target users included <strong>locals</strong>, <strong>Eritrean community members</strong>, and <strong>curious foodies</strong>. For them, the site needed to immediately feel <strong>trustworthy</strong>, <strong>warm</strong>, and <strong>memorable</strong>.
-    </p>
-  </section>
-
-  <section id="process">
-    <h2>🔀 Process</h2>
-
-    <h3>Visual Styling Guide Updates</h3>
-    <p>
-      After a round of <strong>peer critique</strong>, I reworked the <strong>visual style guide</strong> to improve <strong>clarity</strong>, <strong>contrast</strong>, and <strong>consistency</strong>. The new version better reflects the restaurant’s <strong>warmth and identity</strong>.
-    </p>
-
-    <div class="intro-images critique-comparison">
-      <figure>
-        <img src="responsiveredesign/figma-before.png" alt="Figma mockup before critique">
-        <figcaption><strong>Before</strong></figcaption>
-      </figure>
-      <figure>
-        <img src="responsiveredesign/figma-after.png" alt="Figma mockup after critique">
-        <figcaption><strong>After</strong></figcaption>
-      </figure>
-    </div>
-
-    <h3>Before Peer Critique</h3>
-    <p>
-      My <strong>early drafts</strong> were shared in a <strong>peer feedback session</strong>. Based on the suggestions, I refined <strong>layout spacing</strong>, improved <strong>text hierarchy</strong>, and made the design more <strong>welcoming and intuitive</strong>.
-    </p>
-
-    <div class="intro-images critique-comparison">
-      <figure>
-        <img src="responsiveredesign/mockup-before.png" alt="Website before critique">
-        <figcaption><strong>Before</strong> initial HTML/CSS draft</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section id="solution">
-    <h2>💡 Solution</h2>
-    <p>
-      The <strong>final product</strong> directly addresses the pain points identified:
-    </p>
-    <ul style="list-style: none; padding-left: 0;">
-      <li>✅ <strong>Above-the-fold</strong> access to hours, menu, and contact</li>
-      <li>✅ <strong>High-contrast</strong> palette and legible typography for <strong>accessibility</strong></li>
-      <li>✅ <strong>Emotional resonance</strong> through real photos and storytelling</li>
-    </ul>
-
-    <figure class="centered-figure" style="margin-top: 2rem;">
-      <img src="responsiveredesign/solution.png" alt="Final solution displayed on Mac screen">
-      <figcaption>Final solution displayed on Mac mockup</figcaption>
-    </figure>
-  </section>
-
-  <section id="learnings">
-    <h2>📚 Learnings</h2>
-    <p>
-      This wasn’t just a portfolio piece—it was a chance to practice <strong>empathy</strong> and <strong>storytelling</strong> in every pixel. I honed my <strong>HTML/CSS</strong> skills, learned to <strong>iterate rapidly</strong>, and saw how thoughtful design can <strong>uplift a community</strong>.
-    </p>
-    <p>
-      Above all, I was reminded that great UX/UI starts and ends with <strong>people</strong>—a core value reflected throughout this <strong>engaging, concise, and memorable case study</strong>, directly in line with the <strong>rubric criteria</strong>.
-    </p>
-  </section>
-
-</div>
-
-
+  <footer class="site-footer"><div class="container"><span>© <span id="year">2026</span> Kyle Sohn</span><span class="hangul" aria-hidden="true">손</span></div></footer>
+  <script src="case.js"></script>
 </body>
 </html>
