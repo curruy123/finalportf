@@ -144,7 +144,7 @@ a { color: inherit; }
 .project-media.contain { display: flex; align-items: center; justify-content: center; padding: 2.5rem; background: #eef1f8; }
 .project-media.contain img { object-fit: contain; }
 .project-media.dark { background: #0a0a0e; }
-.project-media.dark img { object-fit: contain; }
+.project-media.dark img { object-fit: cover; object-position: top left; }
 
 .project-content { padding: 1.6rem 1.6rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
 .project-num { font-family: var(--mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: .55rem; }
@@ -229,3 +229,31 @@ a { color: inherit; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   .ticker-track { animation: none; }
 }
+
+.project-sub { display: block; font-style: italic; font-size: .62em; color: var(--muted); margin-top: .35rem; line-height: 1.2; }
+
+
+/* Card with more than one link */
+.project-card.has-actions { display: grid; grid-template-columns: 1.3fr 1fr; }
+.has-actions .card-media-link { display: block; height: 100%; }
+.has-actions .project-media { height: 100%; }
+.has-actions .project-content { padding: 2.4rem; justify-content: center; }
+.has-actions h3 a { text-decoration: none; }
+.has-actions h3 a:hover { color: var(--red); }
+.card-finding { font-size: .95rem; color: var(--ink-2); background: var(--paper-2); border-radius: 10px; padding: .7rem .9rem; margin: -.2rem 0 1.2rem; }
+.card-finding strong { color: var(--red); }
+.card-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
+.btn-sm { display: inline-flex; align-items: center; gap: .4rem; padding: .6rem 1.05rem; border-radius: 999px; border: 1px solid var(--ink); font-weight: 700; font-size: .88rem; text-decoration: none; color: var(--ink); transition: background .2s, color .2s, transform .2s var(--ease); }
+.btn-sm:hover { transform: translateY(-2px); background: var(--ink); color: var(--paper); }
+.btn-sm.primary { background: var(--ink); color: var(--paper); }
+.btn-sm.primary:hover { background: var(--red); border-color: var(--red); }
+@media (max-width: 760px) {
+  .project-card.has-actions { display: flex; flex-direction: column; }
+  .has-actions .project-media { aspect-ratio: 16 / 10; height: auto; }
+  .has-actions .project-content { padding: 1.6rem; }
+}
+/* The generic card rules style every link inside a card; undo that for multi-link cards */
+.project-card.has-actions a { height: auto; grid-template-columns: none; }
+.project-card.has-actions .card-media-link { display: block; height: 100%; }
+.project-card.has-actions h3 a { display: block; color: inherit; }
+.project-card.has-actions .btn-sm { display: inline-flex; flex-direction: row; }

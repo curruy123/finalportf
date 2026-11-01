@@ -35,10 +35,10 @@
         <div class="hero-copy">
           <span class="mono-label reveal-1">Hey, I’m</span>
           <h1 class="hero-name reveal-1"><span>Kyle</span><span>Sohn<em aria-hidden="true">.</em></span></h1>
-          <p class="hero-line reveal-2">I design things, build things, and lately, dig into data. Right now I’m studying Data Science &amp; AI at Penn.</p>
+          <p class="hero-line reveal-2">I design and build things, and more and more of my work involves data. Right now I’m getting my master’s in Data Science &amp; AI at Penn.</p>
           <div class="hero-actions reveal-3">
             <a href="#work" class="btn btn-primary">See the work <span aria-hidden="true">→</span></a>
-            <a href="#contact" class="btn btn-ghost">Say hi</a>
+            <a href="#contact" class="btn btn-ghost">Get in touch</a>
           </div>
         </div>
         <figure class="polaroid reveal-2">
@@ -59,7 +59,7 @@
           <span class="mono-label">01 / About</span>
           <h2 class="display">Who <em>am I?</em></h2>
           <p>I’ve always been a creative at heart. It started with photography, then I spent a lot of time modeling, and in my senior year at Brown I took a UI/UX class and had so much fun with it. A lot of the design work on this site came out of that class.</p>
-          <p>I studied Computer Science-Economics at Brown, and now I’m getting my master’s in Data Science &amp; AI at Penn, so a lot of my newer projects mix design with data. Outside of school, I’m usually playing basketball or gaming.</p>
+          <p>I studied Computer Science-Economics at Brown, and now I’m getting my master’s in Data Science &amp; AI at Penn, and I’ve been trying to bring design and data together, like in my newest project, Snowball. Outside of school, I’m usually playing basketball or gaming.</p>
 
           <ul class="timeline">
             <li><span class="when">Now</span><span>M.S.E. in Data Science &amp; AI <strong>@ UPenn</strong></span></li>
@@ -88,23 +88,27 @@
       <div class="container">
         <div class="section-head">
           <span class="mono-label">02 / Work</span>
-          <h2 class="display big">Work<sup>10</sup></h2>
+          <h2 class="display big">Work<sup>09</sup></h2>
           <p>Things I’ve built and things I’ve designed.</p>
         </div>
 
         <h3 class="group-title"><span>Data &amp; code</span><small>06 projects</small></h3>
         <div class="project-grid">
-          <article class="project-card featured">
-            <a href="convert/index.html">
-              <div class="project-media dark"><img src="convert/cover.png" alt="CONVERT dashboard summarizing win rate and early-game leads across 162 League of Legends matches" loading="lazy"></div>
-              <div class="project-content">
-                <span class="project-num">Data science · Solo</span>
-                <h3>CONVERT: Why Leads Slip Away</h3>
-                <p>In League of Legends, I kept losing games I was clearly winning early on. So I pulled 162 of my own matches from the game’s public data, tracked how far ahead I was at each point in the game, and built a dashboard and a simple prediction model to see when an early lead actually turns into a win, and when I throw it away.</p>
-                <ul class="tags"><li>Python</li><li>Riot API</li><li>scikit-learn</li><li>Chart.js</li></ul>
-                <span class="project-link">Explore the dashboard <span class="arrow" aria-hidden="true">→</span></span>
-              </div>
+          <article class="project-card featured has-actions">
+            <a class="card-media-link" href="convert/index.html" aria-label="Open the Snowball dashboard">
+              <div class="project-media dark"><img src="convert/cover.png" alt="Snowball dashboard: key finding that held leads win 89% of games vs 42% after dying twice while ahead" loading="lazy"></div>
             </a>
+            <div class="project-content">
+              <span class="project-num">Data science · Solo</span>
+              <h3><a href="convert/index.html">Snowball<span class="project-sub">Do early leads in League actually win games?</span></a></h3>
+              <p>A League of Legends performance dashboard built on my own ranked games. It tracks how my leads grow and slip, and a replay feature picks the costliest moment from my latest game to review.</p>
+              <p class="card-finding"><strong>89%</strong> win rate when I hold a lead, <strong>42%</strong> when I die twice while ahead.</p>
+              <ul class="tags"><li>Python</li><li>Riot API</li><li>scikit-learn</li><li>Chart.js</li></ul>
+              <div class="card-actions">
+                <a class="btn-sm primary" href="convert/index.html">Explore the dashboard <span aria-hidden="true">→</span></a>
+                <a class="btn-sm" href="https://github.com/curruy123/Snowball" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
           </article>
           <article class="project-card">
             <a href="https://github.com/curruy123/EcoEnergy-Insights" target="_blank" rel="noopener">
@@ -170,15 +174,15 @@
           </article>
         </div>
 
-        <h3 class="group-title"><span>Design case studies</span><small>04 projects</small></h3>
-        <div class="project-grid">
+        <h3 class="group-title"><span>Design case studies</span><small>03 projects</small></h3>
+        <div class="project-grid three">
           <article class="project-card">
-            <a href="responsiveredesign.html">
-              <div class="project-media"><img src="responsiveredesign/Asmara Restaurant.jpg" alt="Asmara Restaurant website redesign" loading="lazy"></div>
+            <a href="pointz.html">
+              <div class="project-media contain"><img src="pointz/pointz3.png" alt="Pointz app logo" loading="lazy"></div>
               <div class="project-content">
-                <span class="project-num">Responsive web · Shipped</span>
-                <h3>Asmara Restaurant</h3>
-                <p>My friend Nahum’s mom runs an Eritrean restaurant, and the old website didn’t do it justice. I redesigned it, and we launched it.</p>
+                <span class="project-num">Product · Shipped</span>
+                <h3>Pointz Homepage</h3>
+                <p>As a marketing intern, I pitched a new homepage in Figma. It got me promoted to PM, and the design is in the app now.</p>
                 
                 <span class="project-link">Read the case study <span class="arrow" aria-hidden="true">→</span></span>
               </div>
@@ -208,18 +212,6 @@
               </div>
             </a>
           </article>
-          <article class="project-card">
-            <a href="pointz.html">
-              <div class="project-media contain"><img src="pointz/pointz3.png" alt="Pointz app logo" loading="lazy"></div>
-              <div class="project-content">
-                <span class="project-num">Product · Shipped</span>
-                <h3>Pointz Homepage</h3>
-                <p>As a marketing intern, I pitched a new homepage in Figma. It got me promoted to PM, and the design is in the app now.</p>
-                
-                <span class="project-link">Read the case study <span class="arrow" aria-hidden="true">→</span></span>
-              </div>
-            </a>
-          </article>
         </div>
       </div>
     </section>
@@ -230,8 +222,8 @@
       </video>
       <div class="container contact-inner">
         <span class="mono-label light">03 / Contact</span>
-        <h2 class="display huge">Hit me <em>up.</em></h2>
-        <p class="contact-line">Always happy to talk design, data, or basketball.</p>
+        <h2 class="display huge">Get in <em>touch.</em></h2>
+        <p class="contact-line">I’m always open to new opportunities and conversations.</p>
         <ul class="contact-list">
           <li><a href="mailto:kylethesohn@gmail.com"><span class="k">Email</span><span class="v">kylethesohn@gmail.com</span><span class="go" aria-hidden="true">↗</span></a></li>
           <li><a href="tel:+14014654722"><span class="k">Phone</span><span class="v">401-465-4722</span><span class="go" aria-hidden="true">↗</span></a></li>

@@ -387,3 +387,9 @@ figcaption { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
 .next-project a:hover .arrow-circle { background: #fff; color: var(--ink); border-color: #fff; }
 .site-footer { background: var(--ink); color: #8f8a80; font-family: var(--mono); font-size: .75rem; text-align: left; padding: 1.4rem 0; border-top: 1px solid #262626; }
 .site-footer .container { display: flex; justify-content: space-between; align-items: center; }
+
+.live-link { margin-top: 1.75rem; }
+.live-link a { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.4rem; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 700; text-decoration: none; transition: background .2s, transform .2s var(--ease); }
+.live-link a:hover { background: var(--red); transform: translateY(-2px); }
+.meta dd a { text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+.meta dd a:hover { color: var(--red); border-color: var(--red); }
