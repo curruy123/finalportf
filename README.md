@@ -11,7 +11,7 @@ A responsive portfolio site I designed and built from scratch with HTML, CSS and
 ## What's on the site
 
 - **Home:** an intro and a short about section with my background (Brown CS-Econ, Penn Data Science & AI) and interests
-- **Data & code projects:** [Snowball](https://github.com/curruy123/Snowball) (with its live dashboard), EcoEnergy Insights, Sneaker Bargains, Search, Sketchy and Tetris
+- **Data & code projects:** [Snowball](https://github.com/curruy123/Snowball) (with its live dashboard), [LLM Rankings](https://github.com/curruy123/LLMrankings), EcoEnergy Insights, Sneaker Bargains, Search, Sketchy and Tetris
 - **Design case studies:** full write-ups for Pointz, Apriora AI and User Mindscapes, covering the problem, research, process, solution and what I learned
 - **Contact:** email, LinkedIn, GitHub and Instagram
 
